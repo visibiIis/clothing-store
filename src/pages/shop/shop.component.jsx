@@ -1,13 +1,13 @@
 import React from "react";
 
+import CollectionPreview from "../../components/collection-preview/collection-preview.component";
+
 import "./shop.styles.scss";
 import SHOP_DATA from "./shop.data";
 
-import CollectionPreview from "../../components/collection-preview/collection-preview.component";
-
 class ShopPage extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 
 		this.state = {
 			collections: SHOP_DATA,
