@@ -10,7 +10,7 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 import "./header.styles.scss";
 
 const Header = ({ currentUser, toggleCartHidden }) => (
-	<div className="header no-select">
+	<div className="header">
 		<Link className="logo-container" to="/">
 			<Logo className="logo" />
 		</Link>
@@ -30,7 +30,7 @@ const Header = ({ currentUser, toggleCartHidden }) => (
 					SIGN IN
 				</Link>
 			)}
-			<CartIcon className="no-select" />
+			<CartIcon />
 		</div>
 		{toggleCartHidden ? null : <CartDropdown />}
 	</div>
