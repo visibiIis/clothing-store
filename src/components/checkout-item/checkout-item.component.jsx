@@ -39,7 +39,10 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
 				</QuantityArrow>
 			</CheckoutItemQuantity>
 			<CheckoutItemPrice>{price}</CheckoutItemPrice>
-			<CheckoutItemRemoveButton onClick={() => clearItem(cartItem)}>
+			<CheckoutItemRemoveButton
+				className="no-select"
+				onClick={() => clearItem(cartItem)}
+			>
 				&#10005;
 			</CheckoutItemRemoveButton>
 		</CheckoutItemContainer>
