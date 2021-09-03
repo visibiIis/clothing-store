@@ -1,14 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import { createStructuredSelector } from "reselect";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import CustonButton from "../custom-button/custom-button.component";
 import CartItem from "../cart-item/cart-item.component";
-import {
-	selectCartItems,
-	selectCartHidden,
-} from "../../redux/cart/cart.selectors";
+import { selectCartItems } from "../../redux/cart/cart.selectors";
 import { toggleCartHidden } from "../../redux/cart/cart.actions";
 
 import {
@@ -17,34 +13,33 @@ import {
 	EmptyMessageContainer,
 } from "./cart-dropdown.styles";
 
-const CartDropdown = ({ cartItems, history, dispatch }) => (
-	<CartDropdownContainer>
-		<CartItemsContainer>
-			{console.log(cartItems)}
-			{cartItems.length ? (
-				cartItems.map((cartItem) => (
-					<CartItem key={cartItem.id} item={cartItem} />
-				))
-			) : (
-				<EmptyMessageContainer>
-					Your cart is empty
-				</EmptyMessageContainer>
-			)}
-		</CartItemsContainer>
-		<CustonButton
-			onClick={() => {
-				dispatch(toggleCartHidden());
-				history.push("/checkout");
-			}}
-		>
-			GO TO CHECKOUT
-		</CustonButton>
-	</CartDropdownContainer>
-);
+const CartDropdown = () => {
+	const cartItems = useSelector(selectCartItems);
+	const history = useHistory();
 
-const mapStateToProps = createStructuredSelector({
-	cartItems: selectCartItems,
-	toggleCartHidden: selectCartHidden,
-});
+	return (
+		<CartDropdownContainer>
+			<CartItemsContainer>
+				{cartItems.length ? (
+					cartItems.map((cartItem) => (
+						<CartItem key={cartItem.id} item={cartItem} />
+					))
+				) : (
+					<EmptyMessageContainer>
+						Your cart is empty
+					</EmptyMessageContainer>
+				)}
+			</CartItemsContainer>
+			<CustonButton
+				onClick={() => {
+					toggleCartHidden();
+					history.push("/checkout");
+				}}
+			>
+				GO TO CHECKOUT
+			</CustonButton>
+		</CartDropdownContainer>
+	);
+};
 
-export default withRouter(connect(mapStateToProps)(CartDropdown));
+export default CartDropdown;

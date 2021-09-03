@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { clearItem, removeItem, addItem } from "../../redux/cart/cart.actions";
 
@@ -14,7 +14,9 @@ import {
 	QuantityValue,
 } from "./checkout-item.styles";
 
-const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+const CheckoutItem = ({ cartItem }) => {
+	const dispatch = useDispatch();
+
 	const { name, imageUrl, price, quantity } = cartItem;
 	return (
 		<CheckoutItemContainer>
@@ -26,14 +28,14 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
 				<QuantityArrow
 					quantity={quantity}
 					className="no-select"
-					onClick={() => removeItem(cartItem)}
+					onClick={() => dispatch(removeItem(cartItem))}
 				>
 					&#10094;
 				</QuantityArrow>
 				<QuantityValue>{quantity}</QuantityValue>
 				<QuantityArrow
 					className="no-select"
-					onClick={() => addItem(cartItem)}
+					onClick={() => dispatch(addItem(cartItem))}
 				>
 					&#10095;
 				</QuantityArrow>
@@ -41,7 +43,7 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
 			<CheckoutItemPrice>{price}</CheckoutItemPrice>
 			<CheckoutItemRemoveButton
 				className="no-select"
-				onClick={() => clearItem(cartItem)}
+				onClick={() => dispatch(clearItem(cartItem))}
 			>
 				&#10005;
 			</CheckoutItemRemoveButton>
@@ -49,10 +51,4 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
 	);
 };
 
-const mapDispatchToProps = (dispatch) => ({
-	clearItem: (item) => dispatch(clearItem(item)),
-	addItem: (item) => dispatch(addItem(item)),
-	removeItem: (item) => dispatch(removeItem(item)),
-});
-
-export default connect(null, mapDispatchToProps)(CheckoutItem);
+export default CheckoutItem;
