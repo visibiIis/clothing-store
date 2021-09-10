@@ -11,9 +11,10 @@ export const CollectionTitle = styled.h2`
 `;
 
 export const CollectionItemsContainer = styled.div`
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-gap: 10px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
 	& > div {
 		margin-bottom: 30px;
 	}
