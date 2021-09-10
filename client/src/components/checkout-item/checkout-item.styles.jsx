@@ -40,6 +40,11 @@ export const CheckoutItemQuantity = styled.span`
 
 export const CheckoutItemPrice = styled.span`
 	${CheckoutItemInfoStyles}
+
+	@media screen and (max-width: 800px) {
+		text-align: center;
+		width: 14%;
+	}
 `;
 
 export const QuantityValue = styled.span`
@@ -57,4 +62,8 @@ export const CheckoutItemRemove = styled.span;
 export const CheckoutItemRemoveButton = styled.div`
 	padding-left: 12px;
 	cursor: pointer;
+
+	@media screen and (max-width: 800px) {
+		padding-left: 28px;
+	}
 `;

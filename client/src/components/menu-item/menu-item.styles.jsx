@@ -16,12 +16,12 @@ const getImage = (props) => {
 };
 
 const LargeMenuItem = css`
-	height: 52.7vh;
+	height: 49.5vh;
 `;
 
 export const MenuItemContainer = styled.div`
 	min-width: 30%;
-	height: 33.3vh;
+	height: 31.25vh;
 	flex: 1 1 auto;
 	display: flex;
 	align-items: center;
@@ -50,6 +50,10 @@ export const MenuItemContainer = styled.div`
 
 	&:last-child {
 		margin-left: 7.5px;
+	}
+
+	@media screen and (max-width: 800px) {
+		height: 200px;
 	}
 `;
 

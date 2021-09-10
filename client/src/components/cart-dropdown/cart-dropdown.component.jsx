@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import CustonButton from "../custom-button/custom-button.component";
@@ -15,6 +15,7 @@ import {
 
 const CartDropdown = () => {
 	const cartItems = useSelector(selectCartItems);
+	const dispatch = useDispatch();
 	const history = useHistory();
 
 	return (
@@ -32,7 +33,7 @@ const CartDropdown = () => {
 			</CartItemsContainer>
 			<CustonButton
 				onClick={() => {
-					toggleCartHidden();
+					dispatch(toggleCartHidden());
 					history.push("/checkout");
 				}}
 			>
