@@ -6,6 +6,8 @@ export const SignUpContainer = styled.div`
 	flex-direction: column;
 
 	@media screen and (max-width: 800px) {
+		margin: 0 auto;
+
 		button {
 			margin: 0 auto;
 		}
