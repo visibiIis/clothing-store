@@ -56,16 +56,16 @@
 
 ## Connect to Firebase
 
-### 1. Go to Firbase [console](<(https://console.firebase.google.com/)>) > Project setting
+#### 1. Go to Firbase [console](<(https://console.firebase.google.com/)>) > Project setting
 
 ![config.png](https://i.ibb.co/ZBN7BDJ/Screenshot-1-1.png)
 
-### 2. Replace **_src/firebase/firebase.utils.js_** `config` with it.
+#### 2. Replace **_src/firebase/firebase.utils.js_** `config` with it.
 
 ## Usage of Stripe
 
-### 1. Go to Stripe [Dashboard](https://dashboard.stripe.com) > Developers > API keys
+#### 1. Go to Stripe [Dashboard](https://dashboard.stripe.com) > Developers > API keys
 
-### 2. Set the `publishableKey` in the `StripeCheckoutButton` from "Publishable key" field
+#### 2. Set the `publishableKey` in the `StripeCheckoutButton` from "Publishable key" field
 
-### 3. Set `STRIPE_SECRET_KEY="YOUR_STRIPE_SECRETKEY"` in the **_clothing-store/.env_**
+#### 3. Set `STRIPE_SECRET_KEY="YOUR_STRIPE_SECRETKEY"` in the **_clothing-store/.env_**
