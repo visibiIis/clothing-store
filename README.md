@@ -58,7 +58,7 @@
 
 ### 1. Go to Firbase [console](<(https://console.firebase.google.com/)>) > Project setting
 
-![config.png](https://i.ibb.co/dP7xPYc/Screenshot-1-1.png)
+![config.png](https://i.ibb.co/ZBN7BDJ/Screenshot-1-1.png)
 
 ### 2. Replace **_src/firebase/firebase.utils.js_** `config` with it.
 
